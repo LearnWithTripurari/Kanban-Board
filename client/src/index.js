@@ -1,7 +1,8 @@
-import {header} from './header'
-import './style.css'
+import App from "./App";
 
-console.log('working')
-const txt = header();
+document.addEventListener("DomContentLoaded" , function () {
+    const root =  document.getElementById('root');
+    root.appendChild(new App());
+});
 
-console.log(txt);
+
