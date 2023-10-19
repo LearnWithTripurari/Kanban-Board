@@ -2,13 +2,15 @@ import App from "../App";
 import Home from "../Home";
 import AboutUs from "../AboutUs";
 import ContactUs from "../ContactUs"
+import Landing from "../landing";
 
 const router = {
     routes: {
         '/': App,
-        '/home': Home,
-        '/aboutUs': AboutUs,
-        '/contactUs': ContactUs
+        '#/home': Home,
+        '#/aboutUs': AboutUs,
+        '#/contactUs': ContactUs,
+        '#dashboard': Landing
     },
     onNavigate: function (route) {
         window.addEventListener("popstate", () => {

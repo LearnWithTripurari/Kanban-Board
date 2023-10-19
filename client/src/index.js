@@ -1,8 +1,11 @@
 import App from "./App";
+import router from "./libs/router";
 
-document.addEventListener("DomContentLoaded" , function () {
-    const root =  document.getElementById('root');
-    root.appendChild(new App());
-});
+const root = document.getElementById('root');
+root.appendChild(new App());
+
+window.onload = function() {
+   router.onNavigate(document.location.hash || '/')
+}
 
 
