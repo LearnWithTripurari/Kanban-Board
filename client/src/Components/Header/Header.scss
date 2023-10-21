@@ -1,0 +1,16 @@
+.header {
+    background-color: rgba(210, 98, 0, 0.65);
+    display: flex;
+    padding: 10px 0;
+
+
+    .left-section {
+        display: inline-flex;
+
+        .menu-icon, .home-icon {
+            margin-right: 10px;
+        }
+    }
+
+}
+
