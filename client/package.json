@@ -5,16 +5,21 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "build": "node esbuild-config/build.mjs"
+    "start": "node config/esbuild-dev.mjs",
+    "build": "node config/esbuild.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
     "esbuild": "^0.19.5",
     "esbuild-sass-plugin": "^2.16.0",
-    "postcss": "^8.4.31",
-    "preact": "^10.18.1"
+    "postcss": "^8.4.31"
+  },
+  "dependencies": {
+    "preact": "^10.18.1",
+    "preact-router": "^4.1.2"
   }
 }
