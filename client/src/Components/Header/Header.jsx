@@ -3,16 +3,9 @@ import './Header.scss';
 
 function Header() {
     return (
-        <div className="header">
-            <div className="left-section">
-                <span className="material-symbols-outlined color-white menu-icon">
-                  menu
-                </span>
-
-            </div>
-
-        </div>
-
+        <header className="header">
+            <div className="brand">Kanban Board</div>
+        </header>
     );
 }
 
