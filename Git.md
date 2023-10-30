@@ -49,3 +49,119 @@ In this example:
 - The footer references issues that are being closed or fixed by this commit.
 
 Using a consistent format for commit messages like this can greatly improve collaboration, code review, and release management in your Git project.
+
+Certainly, here are some useful Git commands that you can include in your `README.md` file to help developers work with your project:
+
+
+---
+
+# Git useful commands
+
+- **Clone a Repository**:
+  ```shell
+  git clone <repository_url>
+  ```
+
+- **Initialize a New Git Repository**:
+  ```shell
+  git init
+  ```
+
+- **Check the Status of Changes**:
+  ```shell
+  git status
+  ```
+
+- **Add Changes to Staging Area**:
+  ```shell
+  git add <file_name>
+  ```
+
+- **Commit Changes**:
+  ```shell
+  git commit -m "Your commit message here"
+  ```
+
+- **Pull Latest Changes from Remote Repository**:
+  ```shell
+  git pull
+  ```
+
+- **Push Changes to Remote Repository**:
+  ```shell
+  git push
+  ```
+
+- **Create a New Branch**:
+  ```shell
+  git checkout -b <branch_name>
+  ```
+
+- **Switch to a Branch**:
+  ```shell
+  git checkout <branch_name>
+  ```
+
+- **Merge Changes from One Branch to Another**:
+  ```shell
+  git merge <source_branch>
+  ```
+
+- **Delete a Branch**:
+  ```shell
+  git branch -d <branch_name>
+  ```
+
+## Working with Remotes
+
+- **Add a Remote Repository**:
+  ```shell
+  git remote add <remote_name> <repository_url>
+  ```
+
+- **List Remote Repositories**:
+  ```shell
+  git remote -v
+  ```
+
+- **Fetch Changes from a Remote Repository**:
+  ```shell
+  git fetch <remote_name>
+  ```
+
+## Resolving Conflicts
+
+- **Resolve Conflicts in a File**:
+  Manually edit the conflicted file, remove conflict markers (<<<<<<<, =======, >>>>>>), and commit the resolved file.
+
+- **Abort Merge or Rebase**:
+  ```shell
+  git merge --abort
+  ```
+
+## Viewing History
+
+- **View Commit History**:
+  ```shell
+  git log
+  ```
+
+- **View Commit History with a Graph**:
+  ```shell
+  git log --graph --oneline --all
+  ```
+
+- **View Changes in a Specific Commit**:
+  ```shell
+  git show <commit_sha>
+  ```
+
+- **View Differences Between Staging and Working Directory**:
+  ```shell
+  git diff
+  ```
+
+- **View Differences Between Branches**:
+  ```shell
+  git diff <branch1>..<branch2>
+  ```
