@@ -1,4 +1,46 @@
 .main-content {
   flex: 1;
   padding: 20px;
+
+  .board {
+    display: flex;
+    gap: 20px;
+
+    .box {
+      background: #F4F5F7;
+      min-width: 282px;
+      max-width: 282px;
+      height: 150px;
+      transition: min-width 300ms ease 0s, max-width 300ms ease-in 0s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #5E6C84;
+        letter-spacing: normal;
+        font-size: 14px;
+        padding: 5px 0 0 10px;
+      }
+
+      .create-task {
+
+        .create-task-input {
+          padding: 0 5px 5px 5px;
+          input {
+            display: none;
+            width: 100%;
+            height: 50px;
+            padding: 0 5px;
+          }
+
+        }
+
+      }
+    }
+
+  }
+
 }
