@@ -1,50 +1,21 @@
-import { h } from 'preact';
+import {h} from 'preact';
 import './Main.scss';
+import Board from "../Dashboard/Board/Board.jsx";
+import Router from 'preact-router';
+import Home from "../Home/Home.jsx";
+import {createHashHistory} from 'history';
+
+
+const customHistory = createHashHistory();
 
 function Main() {
 
-    function onCreateTask() {
-        const createTaskInput = document.querySelector('.create-task-input > input');
-
-        if ( createTaskInput.style.display === 'block')
-            createTaskInput.style.display = 'none';
-        else
-            createTaskInput.style.display = 'block'
-    }
-
-    function onEnter(e) {
-        if (e.key === 'Enter') {
-            console.log(e.target.value);
-        }
-    }
-
     return (
         <main className="main-content">
-
-            <div className="board">
-                <div className="box">
-                    <div className="title">TO DO</div>
-                    <div className="create-task">
-                        <a className="link-button" onClick={onCreateTask}>
-                            <span className="material-symbols-outlined">add</span>
-                            Create task
-                        </a>
-                        <div className="create-task-input">
-                            <input type="text" placeholder="What needs to be done?" onKeyUp={onEnter}/>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div className="box">
-                    <div className="title">IN PROGRESS</div>
-                </div>
-
-                <div className="box">
-                    <div className="title">DONE</div>
-                </div>
-            </div>
-
+            <Router history={customHistory}>
+                <Home path="/home" />
+                <Board path="/dashboard/board" />
+            </Router>
         </main>
     );
 
