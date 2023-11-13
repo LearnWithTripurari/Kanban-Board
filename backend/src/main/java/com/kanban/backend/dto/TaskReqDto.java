@@ -1,5 +1,6 @@
 package com.kanban.backend.dto;
 
+import com.kanban.backend.model.Comment;
 import lombok.Data;
 
 @Data
