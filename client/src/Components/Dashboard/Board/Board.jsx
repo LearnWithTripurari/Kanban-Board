@@ -1,15 +1,18 @@
-import {h} from 'preact';
+import {h, Fragment} from 'preact';
 import {useEffect, useState} from 'preact/hooks';
 import './Board.scss';
-
-const API_URL = 'http://localhost:8080/api';
+import UpdateTaskModal from "./UpdateTaskModal/UpdateTaskModal.jsx";
+import {environment} from "../../../environment/environment.js";
 
 function Board() {
 
     const [tasks, setTask] = useState(null);
 
+    const [isUpdateTaskModalOpen, setUpdateTaskModalOpen] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
+
     useEffect(() => {
-        fetch(`${API_URL}/tasks`)
+        fetch(`${environment.API_URL}/tasks`)
             .then(res => res.json())
             .then(apiData => setTask(apiData))
             .catch(error => console.error)
@@ -21,7 +24,7 @@ function Board() {
         if (createTaskInput.style.display === 'block') createTaskInput.style.display = 'none'; else createTaskInput.style.display = 'block'
     }
 
-    function onEnter(e) {
+    function onTaskEnterBtn(e) {
         const createTaskInputMsgPlaceholder  = document.getElementById('create-task-input-msg-placeholder');
         createTaskInputMsgPlaceholder.style.display = 'none';
 
@@ -41,7 +44,7 @@ function Board() {
     }
 
     function createTask(title) {
-        fetch(`${API_URL}/tasks`, {
+        fetch(`${environment.API_URL}/tasks`, {
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -54,13 +57,20 @@ function Board() {
             .catch(error => console.error)
     }
 
+    function onOpenUpdateTaskModal(task) {
+        setSelectedTask(task);
+        setUpdateTaskModalOpen(true);
+    }
 
-    return (<div className="board">
+
+    return (<>
+            <div className="board">
         <div className="box">
             <div className="wrapper">
                 <div className="box-title">TO DO</div>
                 <div className="task-list">
-                    {tasks !== null ? (tasks.map((task) => (<div className="list-wrapper">
+                    {tasks !== null ? (tasks.map((task) => (
+                        <div className="list-wrapper" onClick={() => onOpenUpdateTaskModal(task)}>
                         <div className="list-item-title">{task.title}</div>
                         <div className="list-item-description">{task.description}</div>
                     </div>))) : (<div>Loading...</div>)}
@@ -71,7 +81,7 @@ function Board() {
                         Create task
                     </a>
                     <div className="create-task-input">
-                        <input type="text" placeholder="What needs to be done?" onKeyUp={onEnter}/>
+                        <input type="text" placeholder="What needs to be done?" onKeyUp={onTaskEnterBtn}/>
                         <span id="create-task-input-msg-placeholder"></span>
                     </div>
 
@@ -86,7 +96,23 @@ function Board() {
         <div className="box">
             <div className="title">DONE</div>
         </div>
-    </div>)
+
+            </div>
+
+            <UpdateTaskModal
+                task={selectedTask}
+                isOpen={isUpdateTaskModalOpen}
+                onClose={() => {
+                    setSelectedTask(null);
+                    setUpdateTaskModalOpen(false)
+                }}
+                onSave={(updatedTask) => {
+                    setSelectedTask(null);
+                    setUpdateTaskModalOpen(false)
+                    console.log(updatedTask)
+                }}
+            />
+        </>)
 }
 
 export default Board;
