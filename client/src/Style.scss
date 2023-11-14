@@ -13,3 +13,21 @@ body {
     padding: 0;
 }
 
+.link-button {
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #42526E;
+    font-weight: 500;
+
+    span {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+
+
