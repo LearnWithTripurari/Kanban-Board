@@ -35,10 +35,13 @@ Lambda expressions were introduced to address this issue and make the code more 
 ---
 **If body have only one statement**
 
-```() -> System.out.println("Lambda Expression")```
-
-```(str) -> str.length();```
-
+```bash
+ () -> System.out.println("Lambda Expression");
+ 
+ (String str) -> {return str.length();}
+ // OR
+ str -> str.length();
+ ```
 ---
 
 
