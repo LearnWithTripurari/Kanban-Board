@@ -3,10 +3,10 @@ import './Main.scss';
 import Board from "../Dashboard/Board/Board.jsx";
 import Router from 'preact-router';
 import Home from "../Home/Home.jsx";
-import {createHashHistory} from 'history';
+import {createMemoryHistory} from 'history';
 
 
-const customHistory = createHashHistory();
+const customHistory = createMemoryHistory();
 
 function Main() {
 
