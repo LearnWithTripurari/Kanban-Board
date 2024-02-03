@@ -1,0 +1,74 @@
+.board {
+  display: flex;
+  gap: 20px;
+
+  .box {
+    background: #F4F5F7;
+    min-width: 282px;
+    max-width: 282px;
+    min-height: 150px;
+    transition: min-width 300ms ease 0s, max-width 300ms ease-in 0s;
+
+
+    .wrapper {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+
+      .task-list {
+
+        .list-wrapper {
+          padding: 2px;
+          background-color: #b2d4ff;
+          margin-bottom: 5px;
+          cursor: pointer;
+
+          .list-item-title {
+            color: #182A4D;
+            font-size: 15px;
+            font-weight: 500;
+          }
+
+          .list-item-description {
+            margin-top: 2.5px;
+          }
+        }
+      }
+
+      .box-title {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #5E6C84;
+        letter-spacing: normal;
+        font-size: 14px;
+      }
+
+      .create-task {
+
+        a {
+          padding: 5px 0;
+        }
+
+        .create-task-input {
+          input {
+            display: none;
+            width: 100%;
+            height: 50px;
+          }
+
+          #create-task-input-msg-placeholder {
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+
+}
